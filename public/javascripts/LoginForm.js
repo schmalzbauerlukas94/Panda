@@ -1,9 +1,9 @@
 angular.module('TabsApp')
-    .controller('LoginFormCtrl', [function () {
+    .controller('LoginFormCtrl', ['LoginService',function (LoginService) {
         var self = this;
 
         self.sendFormData = function(){
-
+            LoginService.login(self.user);
         }
     }]);
 
