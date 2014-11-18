@@ -1,10 +1,6 @@
 package controllers;
 
-import play.mvc.Controller;
-import play.mvc.Result;
-
-
-
+import org.specs2.json.Json;
 import play.*;
 import play.mvc.*;
 
@@ -14,5 +10,9 @@ public class UserLogin extends Controller{
 		  
 	        return ok("ABC");
 	    }
+	     public static Result load() {
+
+        	        return ok(Json.toJson("Markus"));
+        	    }
 	
 }
