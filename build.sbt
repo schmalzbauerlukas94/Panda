@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-   "net.sourceforge.jtds" % "jtds" % "1.2" ,
-   "mysql" % "mysql-connector-java" % "5.1.18"
+  "net.sourceforge.jtds" % "jtds" % "1.2" ,
+  "mysql" % "mysql-connector-java" % "5.1.18",
+  "org.activiti" % "activiti-engine" % "5.14"
 )
