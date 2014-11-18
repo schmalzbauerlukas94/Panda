@@ -21,9 +21,6 @@ angular.module('TabsApp', [])
         }];
 
 
-        self.formData_receive = [{}];
-
-
         self.currentTab = 'one.tpl.html';
 
         self.onClickTab = function (tab) {

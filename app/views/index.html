@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="TabsApp">
+<html ng-app="TabsApp" ng-controller="LoginFormCtrl as loginCtrl">
 <head>
     <link rel="stylesheet" type="text/css" href="/Panda/public/stylesheets/tabs.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
@@ -12,7 +12,7 @@
 <body>
 <h1>Project Panda</h1>
 
-<div ng-controller="LoginFormCtrl as loginCtrl">
+<div>
     <div>
         <form ng-submit="loginCtrl.sendFormData()">
             Name:<br>
@@ -68,8 +68,12 @@
             </div>
             <h2>Form credentials</h2>
 
-            <div ng-repeat="received_userData in tabsCtrl.receivedLoginData">{{received_userData.username}}</div>
-            <div>{{received_userData.password}}</div>
+            <div ng-repeat="receivedLoginData in loginCtrl.receivedLoginData">
+                <br>Username: {{receivedLoginData.username}}
+                <br>Password: {{receivedLoginData.password}}
+            </div>
+
+
         </div>
     </script>
 
