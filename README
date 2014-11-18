@@ -2,3 +2,27 @@ This is your new Play application
 =================================
 
 This file will be packaged with your application, when using `activator dist`.
+
+
+INSTALL
+
+First, clone the project to your local system
+
+   $ git clone https://github.com/Leminga/Panda.git
+
+Next, go the the local repository directory and
+run the activator to download the dependencies,
+compile the source code, and run the play
+framework.
+
+   $ cd /path/to/local/repository
+   $ ./activator
+
+Once the play framwork is running, you may want
+to eclipsify your project, in order to import it
+to the Eclipse IDE.
+
+  [Panda] $ eclipse
+
+Finaly, you can import the Panda project to the
+Eclipse IDE as a general existing project.
