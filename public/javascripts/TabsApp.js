@@ -1,6 +1,7 @@
 angular.module('TabsApp', [])
-    .controller('TabsCtrl', ['$scope', function ($scope) {
-        $scope.tabs = [{
+    .controller('TabsCtrl', [ function () {
+        var self = this;
+        self.tabs = [{
             title: 'Description',
             url: 'one.tpl.html'
         }, {
@@ -8,36 +9,29 @@ angular.module('TabsApp', [])
             url: 'two.tpl.html'
 
         }];
-        $scope.credentials = [{
+        self.credentials = [{
             "username": "Benno",
             "password": "Benno123"
         }, {
             "username": "Maria",
             "password": "Maria123"
-        },{
+        }, {
             "username": "Maria55",
             "password": "Maria123"
         }];
 
-        formData_send =[{
-            "username" : "",
-            "password" : ""
-        }];
 
-        $scope.formData_receive ={};
+        self.formData_receive = [{}];
 
-        $scope.update = function(user) {
-            $scope.formData_send = angular.copy(user);
+
+        self.currentTab = 'one.tpl.html';
+
+        self.onClickTab = function (tab) {
+            self.currentTab = tab.url;
         };
 
-        $scope.currentTab = 'one.tpl.html';
-
-        $scope.onClickTab = function (tab) {
-            $scope.currentTab = tab.url;
-        };
-
-        $scope.isActiveTab = function (tabUrl) {
-            return tabUrl == $scope.currentTab;
+        self.isActiveTab = function (tabUrl) {
+            return tabUrl == self.currentTab;
         }
     }]);
 
