@@ -6,21 +6,29 @@
     <script src="/Panda/public/javascripts/TabsApp.js"></script>
     <script src="/Panda/public/javascripts/LoginForm.js"></script>
     <script src="/Panda/public/javascripts/LoginService.js"></script>
+    <script src="/Panda/public/javascripts/GetLoginDataService.js"></script>
     <title>Project Panda</title>
 </head>
 <body>
 <h1>Project Panda</h1>
 
 <div ng-controller="LoginFormCtrl as loginCtrl">
-    <form ng-submit="loginCtrl.sendFormData()">
-        Name:<br>
-        <input type="text" name="name" ng-model="loginCtrl.user.name" required=""/>
-        <br>
-        Password:<br>
-        <input type="text" name="password" ng-model="loginCtrl.user.password">
-        <br><br>
-        <button type="submit">Save Data</button>
-    </form>
+    <div>
+        <form ng-submit="loginCtrl.sendFormData()">
+            Name:<br>
+            <input type="text" name="name" ng-model="loginCtrl.user.name" required=""/>
+            <br>
+            Password:<br>
+            <input type="text" name="password" ng-model="loginCtrl.user.password">
+            <br><br>
+            <button type="submit">Send Data</button>
+        </form>
+    </div>
+    <div>
+        <form ng-submit="loginCtrl.getFormData()">
+            <button type="submit">Get Data</button>
+        </form>
+    </div>
 </div>
 
 <br>
@@ -60,8 +68,8 @@
             </div>
             <h2>Form credentials</h2>
 
-            <div>{{user.name}}</div>
-            <div>{{user.password}}</div>
+            <div ng-repeat="received_userData in tabsCtrl.receivedLoginData">{{received_userData.username}}</div>
+            <div>{{received_userData.password}}</div>
         </div>
     </script>
 
