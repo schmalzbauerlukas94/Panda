@@ -9,16 +9,6 @@ angular.module('TabsApp', [])
             url: 'two.tpl.html'
 
         }];
-        self.credentials = [{
-            "username": "Benno",
-            "password": "Benno123"
-        }, {
-            "username": "Maria",
-            "password": "Maria123"
-        }, {
-            "username": "Maria55",
-            "password": "Maria123"
-        }];
 
 
         self.currentTab = 'one.tpl.html';

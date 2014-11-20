@@ -25,7 +25,7 @@
         </form>
     </div>
     <div>
-        <form ng-submit="loginCtrl.getFormData()">
+        <form ng-submit="loginCtrl.getTestData()">
             <button type="submit">Get Data</button>
         </form>
     </div>
@@ -68,7 +68,7 @@
             </div>
             <h2>Form credentials</h2>
 
-            <div ng-repeat="receivedLoginData in loginCtrl.receivedLoginData">
+            <div ng-repeat="receivedLoginData in loginCtrl.testData">
                 <br>Username: {{receivedLoginData.username}}
                 <br>Password: {{receivedLoginData.password}}
             </div>
