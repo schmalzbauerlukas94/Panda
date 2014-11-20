@@ -3,46 +3,40 @@ package models;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 import play.libs.Json;
 
 public class Volunteer {
-	 @Id
-     private Long id;
-     private String name;
+	 
+     private String username;
      private String password;
     
     
      public Volunteer (String j)
      {
              Volunteer v = Json.fromJson(Json.parse(j), Volunteer.class);
-             this.name = v.getName();
+             this.username = v.getUsername();
+             this.password = v.getPassword();
      }
      
      public Volunteer()
      {
-             
+    	 
      }
      
-     public Long getId() {
-             return id;
-     }
-
-     public void setId(Long id) {
-             this.id = id;
-     }
-     
-     public String getName() {
-         return name;
+     public String getUsername() {
+         return username;
 	 }
 	
-	 public void setName(String name) {
-	         this.name = name;
+	 public void setUsername(String name) {
+	         this.username = name;
 	 }
 
      public String getPassword() {
