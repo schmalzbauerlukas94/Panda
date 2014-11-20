@@ -1,19 +1,21 @@
 angular.module('TabsApp')
     .controller('LoginFormCtrl', ['LoginService', 'GetLoginDataService', function (LoginService, GetLoginDataService) {
         var self = this;
-        self.receivedLoginData = {};
+        self.loginDataGet = {};
+        self.loginDataSend = {};
         self.testData = {};
 
         self.sendFormData = function () {
+            self.loginDataSend = self.user;
             LoginService.login(self.user);
-        }
+        };
 
         self.getFormData = function () {
             GetLoginDataService.getLogin().then(function (response) {
-                self.receivedLoginData = response;
+                self.loginDataGet = response.data;
             });
 
-        }
+        };
 
         self.getTestData = function () {
             return self.testData = [{

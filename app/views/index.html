@@ -21,7 +21,7 @@
             <input type="text" name="name" ng-model="loginCtrl.user.name" required=""/>
             <br>
             Password:<br>
-            <input type="text" name="password" ng-model="loginCtrl.user.password">
+            <input type="text" name="password" ng-model="loginCtrl.user.password" required="">
             <br><br>
             <button type="submit">Send Data</button>
         </form>
@@ -52,15 +52,14 @@
     </div>
     <script type="text/ng-template" id="one.tpl.html">
         <div class="small"id="viewOne">
-                        <p> The "Data"-Tab includes various usernames and passwords. If "Save" is being pressed, that current user
-                is also saved in the "Data"-Tab.</p>
+                        <p> The "Data"-Tab includes various usernames and passwords.</p>
         </div>
 
     </script>
     <script type="text/ng-template" id="two.tpl.html" >
         <div class="small" id="viewTwo">
 
-            <div ng-repeat="user_auth in loginCtrl.user">
+            <div>
                 <br>Username:{{user_auth.username}}
                 <br>Password:{{user_auth.password}}
             </div>
