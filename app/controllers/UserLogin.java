@@ -15,35 +15,53 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 
 
+
 import jdk.nashorn.internal.ir.ObjectNode;
 import play.*;
 import play.db.ebean.Model.Finder;
 import play.libs.Json;
 import play.mvc.*;
+import play.mvc.Http.RequestBody;
 
 
 public class UserLogin extends Controller {
 
+	@BodyParser.Of(BodyParser.Json.class)
 	public static Result save() {
-		JsonNode j = request().body().asJson();
-		Volunteer v = Json.fromJson(j, Volunteer.class);
+		JsonNode body = request().body().asJson();		  
+		Volunteer v = new Volunteer(body.get("name").toString(),body.get("password").toString());		
 		Ebean.save(v);
+		
+		 
+		//List<Volunteer> vs = new ArrayList<Volunteer>();
+		//Volunteer  v1 = new Volunteer(session().get("username"),session().get("password"));
+		//v1.setUsername("Berni");
+		//v1.setPassword("123456");
+		//vs.add(v1);
+		//Volunteer  v2 = new Volunteer(session().get("username"),session().get("password"));
+		//v2.setUsername("Lessi");
+		//v2.setPassword("2365");
+		//vs.add(v2);
+		//Ebean.save(v1);
 		return ok("2ez");
 	}
 
 	public static Result load() {
 		
-		List<Volunteer> vs = new ArrayList<Volunteer>();
-		Volunteer  v1 = new Volunteer();
-		v1.setUsername("Berni");
-		v1.setPassword("123456");
-		vs.add(v1);
-		Volunteer  v2 = new Volunteer();
-		v2.setUsername("Lessi");
-		v2.setPassword("2365");
-		vs.add(v2);
+		List<Volunteer> vl = new ArrayList<Volunteer>();
+		vl = Volunteer.find.all();
+		return ok(Json.toJson(vl));
 		
-		return ok(Json.toJson(vs));		
+		//Volunteer  v1 = new Volunteer(session().get("name"),session().get("password"));
+		//v1.setUsername("Berni");
+		//v1.setPassword("123456");
+		//vs.add(v1);
+		//Volunteer  v2 = new Volunteer(session().get("name"),session().get("password"));
+		//v2.setUsername("Lessi");
+		//v2.setPassword("2365");
+		//vs.add(v2);
+		
+				
 
 		//Map<String,String> itWorks = new HashMap<String,String>(); 
     	//itWorks.put("username","Berni");
