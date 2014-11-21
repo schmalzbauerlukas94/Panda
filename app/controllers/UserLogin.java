@@ -29,7 +29,7 @@ public class UserLogin extends Controller {
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result save() {
 		JsonNode body = request().body().asJson();		  
-		Volunteer v = new Volunteer(body.get("name").toString(),body.get("password").toString());		
+		Volunteer v = new Volunteer(body.get("username").toString(),body.get("password").toString());
 		Ebean.save(v);
 		
 		 

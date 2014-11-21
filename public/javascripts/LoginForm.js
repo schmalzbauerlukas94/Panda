@@ -6,7 +6,6 @@ angular.module('TabsApp')
         self.testData = {};
 
         self.sendFormData = function () {
-            self.loginDataSend = self.user;
             LoginService.login(self.user);
         };
 
@@ -17,16 +16,4 @@ angular.module('TabsApp')
 
         };
 
-        self.getTestData = function () {
-            return self.testData = [{
-                "username": "Benno",
-                "password": "Benno123"
-            }, {
-                "username": "Maria",
-                "password": "Maria123"
-            }, {
-                "username": "Maria55",
-                "password": "Maria123"
-            }];
-        }
     }]);
